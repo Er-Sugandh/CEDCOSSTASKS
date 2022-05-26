@@ -1,0 +1,748 @@
+   DAY 1
+   What is Linux : 
+     Linux is an Kernel not a OS, its a open source free for everyone its very secure and high performance in market it have diff distro     (flavores) sach as      
+     Debian, RHEL, CentOS, Amazon Linux, Ubuntu Linux, Kali Linux etc.
+
+     - that all flavore have thier specific work and use like:
+        - Kali Linux provide diff hacking tools for user as CLI.
+        - Debian : 
+          its open source free for everyone you have not need to purchase or pay it for this you can use according to your requirment its CLI based.
+        - RHEL :
+          RedHat Enterprise Linux its paid version of linux its provide user to user GUI and many other feature you have to take subcription for use it.
+
+   If you struggle with the above like :
+      -Overheating 
+      -Slow Down
+      -Malvare
+      -Virus
+      -licence fee
+  Linux might be the perfect platform for you. Linux has evolved into one of the most reliable computer ecosystems on the planet. Combine that reliability with zero  cost of entry and you have the perfect solution for a desktop platform(Free for all).
+
+it ahs 3 layer:
+
+shell
+Kernel
+H/W
+ 
+ Task :
+
+1: 
+   -Install VirtualBox via CLI :
+         https://forums.linuxmint.com/viewtopic.php?t=287740
+
+
+2:
+   -Using ISO file to create Ubntu 18.04 VM
+   -Setup And Start
+   -Set IP via CLI
+
+-How to install applications in Linux :
+         apt-get install apache2
+         /var/www/html
+         (systemctl status apache2)
+         (systemctl start apache2)
+         (systemctl stop apache2)
+
+How To Use SSH to Connect to a Remote Server :
+
+https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-remote-server
+
+how to set static IP via CLI :
+https://itsfoss.com/static-ip-ubuntu/
+sudo apt install network-manager -y
+nmcli d
+sudo nano /etc/netplan/00-installer-config.yaml
+network:
+   version: 2
+   renderer: networkd
+   ethernets:
+   enp0s3:
+   
+
+"save and quite"
+sudo netplan apply
+
+check the connection statablish or not 
+- ping google.com
+ <--------------------------------------------------------------------------------------------------------------------------------->
+
+DAY 2
+
+command line interface:
+
+basic commands in linux:
+   - commands for directory :    
+     mkdir
+     rmdir
+     cd
+     mv
+   - commands for file
+     touch
+     cat
+     mv
+     rm
+     rename
+     tac
+     tail
+     head
+     cp
+     vi
+     more
+     nano
+     #sudo chmod +x open.sh 
+       sudo ./open.sh 
+       sudo hostnamectl set-hostname sugandhkumar
+     sudo apt install ssh
+
+     
+ The head
+ command is used to display the content of a file. It displays the first 10 lines of a file.
+ tac
+ tail
+ head
+
+
+create two dir along with a file :
+mkdir -p B/C/D && touch B/C/D/myfile.txt
+
+Linux commands attributes :
+https://www.maths.cam.ac.uk/computing/linux/tar
+system operation :
+https://www.maths.cam.ac.uk/computing/linux/file-ops#cd
+
+
+open on terminal :
+subl
+
+
+d: /opt/lampp/lampp start 
+
+Linux :
+https://www.javatpoint.com/linux-commands
+
+Xampp :
+https://community.linuxmint.com/tutorial/view/1016
+
+PHP :
+
+Apcahe2 :
+
+mySQL :
+
+phpmyAdmin :
+ 
+DAY 3 :
+
+useradd :
+useradd -m -d /home/xyz -c "xyz" xyz  
+tail -2 /etc/passwd
+
+VM :
+
+sudo useradd ram -m -d /tmp/home
+sudo passwd ram
+
+CIDR BLOCK :
+https://www.techtarget.com/searchnetworking/definition/CIDR#:~:text=CIDR%20blocks%20are%20groups%20of,the%20length%20of%20the%20prefix.
+
+CIDR notation
+IP sets aside some addresses for specific purposes. For example, several ranges -- such as the Class B 192.168.0.0 -- are set aside as nonroutable and are used to define a private network. Most home Broadband routers will assign addresses from the 192.168 network for systems inside the home. IP also doesn't allow host identifiers of all zeros and reserves the all-ones identifier to serve as a broadcast address -- packets sent to that address will go to all hosts on the network.
+
+Originally, IP addresses were assigned in four major address classes: A through C. Each class allocated one portion of a 32-bit IP address to identify the gateway router for that network -- the first 8 bits for Class A, the first 16 for Class B, the first 24 for Class C. Bits not used for the network identifier were available for specifying host identifiers for systems on that network.
+
+It helps to think of the binary representation of the network addresses. For IPv4, the 32-bit address is broken into four groups of 8 bits each -- called a dotted quad of numbers. A dotted quad would look like this in decimal form, 192.168.0.0, and like this in binary form, 11000000.10101000.00000000.00000000
+
+An IP address can be parsed into its network identifier and host identifier by applying a network mask to the address -- another dot address, with ones wherever a bit is used to indicate the network portion of the address. For example, a classic Class B would be written as 255.255.0.0.
+
+Download PHP according to need (Switch)
+
+sudo update-alternatives --config php
+
+
+systemctl : owner systemd
+
+Permission :
+
+ ---> https://www.youtube.com/watch?v=VKZ3wv_jvyo
+
+ ---> https://www.geeksforgeeks.org/permissions-in-linux/
+
+
+
+
+
+
+ 
+          sudo nano /etc/default/useradd
+
+cedcoss@sugandhkumar:~$ sudo useradd v9 
+cedcoss@sugandhkumar:~$ sudo finger v9
+
+
+DAY 4 :
+
+RunningNotes20220205 :
+ 1 : Persmission:
+Crete a Directory create two users have same permisssion rwx and 4 other users had r x permissiom
+https://superuser.com/questions/280994/give-write-permissions-to-multiple-users-on-a-folder-in-ubuntu
+
+https://www.cis.rit.edu/class/simg211/unixintro/Access_Permissions.html
+
+Symbolic link to a socket :
+
+From a security point of view, is it safe to create a symbolic link to a socket file? The following bits of context refer to the deployment of a web application on a shared hosting service.
+
+$ ls -al ~/runtime/supervisor
+srwx------ 1 myuser myuser 0 Oct  6 20:02 supervisord.sock
+
+
+$ pwd
+~/runtime/deployment_1
+$ ln -s ../supervisor/supervisor.sock
+$ ls -al
+lrwxrwxrwx 1 myuser myuser 47 Oct  6 21:20 supervisord.sock -> ../runtime/supervisor/supervisord.sock=\
+
+Umask :
+https://www.liquidweb.com/kb/what-is-umask-and-how-to-use-it-effectively/#:~:text=Umask%2C%20or%20the%20user%20file,set%20for%20newly%20created%20files.
+tilde :
+https://www.baeldung.com/linux/tilde-bash
+
+tar | zip :
+tar in itself just bundles files together (the result is called a tarball), while zip applies compression as well
+
+DAY 5:
+Agenda :
+
+Wget (Linux File Downloader) Command :
+
+Wget is a free command-line utility and network file downloader, which comes with many features that make file downloads easy.
+
+   Download large files or mirror complete web or FTP sites.
+   Download multiple files at once.
+   Set bandwidth and speed limit for downloads.
+   Download files through proxies.
+   Can resume aborted downloads.
+   Recursively mirror directories.
+   Runs on most UNIX-like operating systems as well as Windows.
+   Unattended / background operation.
+   Support for persistent HTTP connections.
+   Support for SSL/TLS for encrypted downloads using the OpenSSL or GnuTLS library.
+   Support for IPv4 and IPv6 downloads.
+
+TASk :
+Swap
+  
+  Stress On CPU :
+  https://www.tecmint.com/linux-cpu-load-stress-test-with-stress-ng-tool/
+
+ Check the System for Swap Information
+
+ 1.We can see if the system has any configured swap by typing:
+   $ sudo swapon --show
+
+ 2.You can verify that there is no active swap using the free utility:
+   $ free -h
+ 
+ Check Available Space on the Hard Drive Partition.
+  
+ 3.Before we do this, we should check the current disk usage by typing:
+ 
+ 
+DAy 6 :
+
+Partition :
+
+https://www.youtube.com/watch?v=QNWuJJYqQV8
+
+LVM Creation :
+
+ - https://linuxconfig.org/linux-lvm-logical-volume-manager#:~:text=Logical%20Volume%20Manager%20(LVM)%20is,easy%20to%20configure%20and%20use.
+ - https://forum.linuxfoundation.org/discussion/857572/whats-8e-logical-volume-manager-lvm-chapter
+ - https://www.youtube.com/watch?v=S3-MzmKrq1g
+    
+LVm Extend :
+
+  - https://www.linuxtechi.com/extend-lvm-partitions/
+
+    Swap space :
+
+  - https://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/ch-swapspace.html
+    
+  - https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
+
+  - https://opensource.com/article/18/9/swap-space-linux-systems
+  
+ 
+
+Vi Editor :
+
+https://www.javatpoint.com/vi-editor
+
+Nano Editor :
+
+https://www.javatpoint.com/linux-nano-editor#:~:text=GNU%20nano%20is%20a%20friendly,of%20the%20pico%20text%20editor.
+
+
+
+4. What is the command to create a user with a pre defined uid, shell and home directory?
+   useradd -m -d /path/to/home -s /bin/bash -u 550 <USER>
+
+
+5. Explain each field of /etc/passwd
+deepak:x:512:512:User:/home/deepak:/bin/bash
+1st field: username
+2nd field: x tells that an encrypted password is stored in /etc/shadow
+3rd field: uid
+4th field: gid
+5th field: Description
+6th field: home directory
+7th field: default login shell
+
+
+How to change primary group for any user?
+usermod -g <groupname>  <username>
+
+passwd username 
+
+https://www.linuxforfreshers.com/2015/07/linux-interview-questions-and-answers_11.html
+
+DAY 7 :
+
+LVM :
+
+
+sugandhvm@cedcoss:~$ sudo fdisk /dev/sdb
+
+Welcome to fdisk (util-linux 2.31.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+
+Command (m for help): n
+Partition type
+   p   primary (1 primary, 0 extended, 3 free)
+   e   extended (container for logical partitions)
+Select (default p): 
+
+Using default response p.
+Partition number (2-4, default 2): 2
+First sector (20973568-62914559, default 20973568): 
+Last sector, +sectors or +size{K,M,G,T,P} (20973568-62914559, default 62914559): +10G
+
+Created a new partition 2 of type 'Linux' and of size 10 GiB.
+
+Command (m for help): t
+Partition number (1,2, default 2): 2
+Hex code (type L to list all codes): 8e
+
+Changed type of partition 'Linux' to 'Linux LVM'.
+
+Command (m for help): w
+The partition table has been altered.
+Syncing disks.
+
+
+sugandhvm@cedcoss:~$ lsblk
+NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                         8:0    0   20G  0 disk 
+├─sda1                      8:1    0    1M  0 part 
+├─sda2                      8:2    0    1G  0 part /boot
+└─sda3                      8:3    0   19G  0 part 
+  └─ubuntu--vg-ubuntu--lv 253:0    0   19G  0 lvm  /
+sdb                         8:16   0   30G  0 disk 
+├─sdb1                      8:17   0   10G  0 part 
+│ └─ubuntu--vg-lvm1       253:1    0  9.9G  0 lvm  
+└─sdb2                      8:18   0   10G  0 part 
+sr0   
+
+
+sugandhvm@cedcoss:~$ sudo vgextend ubuntu-vg /dev/sdb2
+  Volume group "ubuntu-vg" successfully extended
+
+
+sugandhvm@cedcoss:~$ sudo lvextend -L +10G /dev/mapper/ubuntu-vg/ubuntu-lv
+  skip_dev_dir: Couldn't split up device name ubuntu-vg/ubuntu-lv.
+  Size of logical volume ubuntu-vg/ubuntu-lv changed from <19.00 GiB (4863 extents) to <29.00 GiB (7423 extents).
+  Logical volume ubuntu-vg/ubuntu-lv successfully resized.
+
+sugandhvm@cedcoss:~$ lsblk
+NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                         8:0    0   20G  0 disk 
+├─sda1                      8:1    0    1M  0 part 
+├─sda2                      8:2    0    1G  0 part /boot
+└─sda3                      8:3    0   19G  0 part 
+  └─ubuntu--vg-ubuntu--lv 253:0    0   29G  0 lvm  /
+sdb                         8:16   0   30G  0 disk 
+├─sdb1                      8:17   0   10G  0 part 
+│ ├─ubuntu--vg-ubuntu--lv 253:0    0   29G  0 lvm  /
+│ └─ubuntu--vg-lvm1       253:1    0  9.9G  0 lvm  
+└─sdb2                      8:18   0   10G  0 part 
+  └─ubuntu--vg-ubuntu--lv 253:0    0   29G  0 lvm  /
+sr0                        11:0    1 1024M  0 rom 
+
+ 
+sugandhvm@cedcoss:~$ sudo resize2fs /dev/ubuntu-vg/ubuntu-lv 
+resize2fs 1.44.1 (24-Mar-2018)
+Filesystem at /dev/ubuntu-vg/ubuntu-lv is mounted on /; on-line resizing required
+old_desc_blocks = 3, new_desc_blocks = 4
+The filesystem on /dev/ubuntu-vg/ubuntu-lv is now 7601152 (4k) blocks long.
+
+sugandhvm@cedcoss:~$ df -h
+Filesystem                         Size  Used Avail Use% Mounted on
+udev                               965M     0  965M   0% /dev
+tmpfs                              200M  736K  199M   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv   29G  3.8G   24G  14% /                     #extend
+tmpfs                              997M     0  997M   0% /dev/shm
+tmpfs                              5.0M     0  5.0M   0% /run/lock
+tmpfs                              997M     0  997M   0% /sys/fs/cgroup
+/dev/sda2                          976M   80M  829M   9% /boot
+tmpfs          
+
+
+CRON JOB :
+
+http://blog.tobiasforkel.de/en/2015/03/19/setup-cron-job-for-apache-user/
+
+lamp stack
+
+https://phoenixnap.com/kb/how-to-install-lamp-stack-on-ubuntu
+
+Virtual Hosting In Ubuntu :
+https://linuxize.com/post/how-to-set-up-apache-virtual-hosts-on-ubuntu-20-04/
+
+Virtual Hosting with Nginx :
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
+
+
+DAY 9 :
+
+Virtual Hosting using Apache2 webserver
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-18-04-quickstart
+https://www.youtube.com/watch?v=srQs4P0C-vw
+
+1 : CEDCOSS (webpage)
+2 : CEDCOMMERCE (webpage)
+
+chmod 755 will give you -rwxr-xr-x permisson, it will allow write permission only to owner of file and usefull for extra level of security.
+
+
+2 : 
+TCP UDP
+https://www.lifesize.com/en/blog/tcp-vs-udp/#:~:text=TCP%20is%20a%20connection%2Doriented,is%20only%20possible%20with%20TCP.
+
+3 :
+ ACL's : http://www.unixmantra.com/2013/04/unix-linux-file-permissions.html
+         https://www.computerhope.com/unix/usetfacl.htm
+         https://www.golinuxcloud.com/setfacl-getfacl-command-in-linux/
+         https://www.youtube.com/watch?v=5PzO453ki6w
+         https://www-uxsup.csx.cam.ac.uk/pub/doc/suse/suse9.0/adminguide-9.0/node27.html
+
+         There are two types of ACLs:
+
+         Access ACLs: Access ACLs are used for granting permissions on any file or directory.
+         Default ACLs: Default ACLs are used for granting/setting access control list on a specific directory only.
+
+#:~:text=setfacl%20command%20in%20Linux%20is,group%20to%20any%20disk%20resource.
+
+Examples :
+Granting an additional user read access
+
+setfacl -m u:lisa:r file
+Revoking write access from all groups and all named users (using the effective rights mask)
+setfacl -m m::rx file
+Removing a named group entry from a file's ACL
+setfacl -x g:staff file
+Copying the ACL of one file to another
+getfacl file1 | setfacl --set-file=- file2
+Copying the access ACL into the Default ACL
+getfacl --access dir | setfacl -d -M- dir
+
+SSH :
+
+https://www.tecmint.com/secure-apache-with-lets-encrypt-ssl-certificate-on-centos-8/
+
+Special Permission :
+
+https://www.youtube.com/watch?v=a2Ivs-qvfuk
+
+phpmyadmin :
+https://www.how2shout.com/linux/how-to-install-phpmyadmin-on-ubuntu-20-04-using-repository/
+
+https://phoenixnap.com/kb/install-phpmyadmin-ubuntu
+
+TCP/UDP :
+https://www.lifesize.com/en/blog/tcp-vs-udp/#:~:text=TCP%20is%20a%20connection%2Doriented,is%20only%20possible%20with%20TCP.
+ACL's :
+https://linux.die.net/man/1/setfacl
+http://www.unixmantra.com/2013/04/unix-linux-file-permissions.html
+https://www.2daygeek.com/linux-add-user-to-group-primary-secondary-group-usermod-gpasswd
+
+Understanding the /etc/passwd File :
+https://linuxize.com/post/etc-passwd-file/
+
+DAY 11 :
+Aliases :
+https://www.javatpoint.com/linux-aliases
+https://phoenixnap.com/kb/linux-alias-command
+
+User and Global Aliases :
+
+dpkg problem solve :
+https://superuser.com/questions/1216965/sudo-apt-get-error-flabspath-on-var-lib-dpkg-status-failed-no-such-file-or-d
+
+mysql without password :
+https://linuxconfig.org/mysql-allow-empty-password
+https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost
+
+NIC :
+
+https://www.cyberciti.biz/faq/linux-list-network-cards-command/
+
+Network bounding :
+
+https://www.interserver.net/tips/kb/network-bonding-types-network-bonding/
+
+Default Port Numbers :
+https://docs.oracle.com/en/storage/tape-storage/sl4000/slklg/default-port-numbers.html#GUID-8B442CCE-F94D-4DFB-9F44-996DE72B2558
+
+sugandhvm@cedcoss:~$ sudo nano /etc/apache2/sites-enabled/cedco
+cedcommerce.com.conf  cedcoss.com.conf      
+sugandhvm@cedcoss:~$ sudo nano /etc/apache2/sites-enabled/cedco
+.
+
+/var/www/cedcommerce.com/cedcommerce_html
+
+
+DAY 11 :
+Wordpress :
+https://www.journaldev.com/24954/install-wordpress-on-ubuntu
+
+http://localhost/wordpress
+
+<----------------------------------------->----<--------------------------------------------------------------->
+
+ugandhvm@cedcoss:/etc/apache2/sites-available$ cat cedcoss.com.conf 
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    ServerName example.com
+    ServerAlias www.cedcoss1.com
+    DocumentRoot /var/www/cedcoss1.com/cedcoss_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+sugandhvm@cedcoss:/etc/apache2/sites-available$ 
+sugandhvm@cedcoss:/etc/apache2/sites-available$ cat cedcoss1.conf 
+<VirtualHost *:80>
+
+ServerAdmin cedcoss@server
+ServerName cedcoss1.com
+DocumentRoot /var/www/html/cedcoss1
+DirectoryIndex index.html
+ErrorLog ${APACHE_LOG_DIR}/cedcoss1.com_error.log
+CustomLog ${APCHE_LOG_DIR}/cedcoss1.com_access.log combined
+</VirtualHost>
+sugandhvm@cedcoss:/etc/apache2/sites-available$ 
+
+
+<-------------------------------------------------------------------------------------------------------------------------------->
+
+
+/etc/apache2/site-available :
+/etc/apache2/site-enabled   :
+/etc/apache2/000-default.conf  :
+https://geek-university.com/sites-available-directory/
+<---------------------------------------------------------------------------------------------------------------------------------->
+/etc/apache2/mods-enabled
+/etc/apache2/mods-available
+https://geek-university.com/mods-enabled-directory/
+<----------------------------------------------------------------------------------------------------------------------------------->
+/etc/apache2/conf-available
+/etc/apache2/conf-enabled
+https://geek-university.com/conf-available-directory/
+<----------------------------------------------------------------------------------------------------------------------------------->
+
+
+apache2.conf: 
+
+This is the main configuration file for the server. Almost all configuration can be done from within this file, although it is recommended to use separate, designated files for simplicity. This file will configure defaults and be the central point of access for the server to read configuration details.
+
+
+ports.conf: 
+
+This file is used to specify the ports that virtual hosts should listen on. Be sure to check that this file is correct if you are configuring SSL.
+
+sites-available/ and sites-enabled/: 
+
+The sites-available directory contains virtual host file configurations. Configurations within this folder will establish which content gets served for which requests. This is enabled through linking to the sites-enabled directory, which stores activated virtual host configuration files. When Apache starts or reloads, it reads the configuration files and links from within the sites-enabled directory as it compiles a full configuration.
+
+conf-available/ and conf-enabled/:
+
+These directories house configuration fragments that are unattached to the virtual host configurations files.
+
+mods-enabled/ and mods-available/: 
+
+These directories define modules that can be optionally loaded. The directories contain two components: files ending in .load, which contain fragments that load particular modules, and files ending in .conf, which store the configurations of these modules.
+
+
+
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    ServerName example.com
+    ServerAlias www.cedcommerce1.com
+    DocumentRoot /var/www/cedcommerce.com/cedcommerce_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+Virtual Hosting : install wordpress with lamp stack :
+
+https://www.rosehosting.com/blog/how-to-install-wordpress-with-lamp-stack-on-ubuntu-16-04/
+https://www.namecheap.com/support/knowledgebase/article.aspx/9821/38/apache-redirect-to-https/
+
+DAY 13 :  
+
+
+LEMP PHP multiple Version wITH SSL:
+https://blog.containerize.com/2021/05/21/how-to-install-multiple-php-versions-with-nginx-on-ubuntu/
+SSL :
+https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-20-04-1
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-password-authentication-with-nginx-on-ubuntu-14-04
+
+DAY 14 :
+CentOS Multiple OS Installation
+
+
+CENTOS
+https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-on-centos-7
+
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-centos-7
+https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-on-centos-7
+
+
+Assign Sudoers  Privileadge To Users simple 
+sudo echo "username  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/username
+
+sudo systemctl enable nginx
+do systemctl daemon-reload
+
+Step 4 – Open port 80 and 443 using firewall-cmd
+You must open and enable port 80 and 443 using the firewall-cmd command:
+$ sudo firewall-cmd --permanent --zone=public --add-service=http
+$ sudo firewall-cmd --permanent --zone=public --add-service=https
+$ sudo firewall-cmd --reload
+
+listen = 127.0.0.1:9000
+/var/run/php-fpm/php-fpm.sock;
+mariaDB passworD11@
+
+
+
+sql
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'passworD1@';
+
+enp0s3
+
+
+UVdesk :
+CREATE DATABASE uvdesk;
+CREATE USER 'uvdeskadmin'@'localhost' IDENTIFIED BY 'passworD11@';
+https://websiteforstudents.com/how-to-install-uvdesk-on-ubuntu/
+
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-centos-8
+
+
+DAY 17
+Setup Reverse Proxy Apache & Nginx on Ubuntu 
+https://tonyteaches.tech/nginx-reverse-proxy-for-apache/
+
+
+
+Installation
+$ composer require laminas/laminas-dependency-plugin
+
+Magento
+https://adepapa.com/how-to-install-magento-2-on-ubuntu-20-04-using-linux-nginx-php-and-mysql-lemp-stack-on-aws/
+https://www.rosehosting.com/blog/how-to-install-magento-2-4-with-lemp-stack-on-ubuntu-20-04/
+
+create database db;
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [(none)]> CREATE USER 'user'@'localhost' IDENTIFIED BY 'Password@11';
+Query OK, 0 rows affected (0.024 sec)
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON db.* TO 'user'@'localhost';
+Query OK, 0 rows affected (0.009 sec)
+
+MariaDB [(none)]> flush priviledge;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'priviledge' at line 1
+MariaDB [(none)]> flush privileges;
+Query OK, 0 rows affected (0.006 sec)
+
+MariaDB [(none)]> exit;
+
+
+
+
+bin/magento setup:install --base-url=http://192.168.2.121/ --db-host=localhost --db-name=db --db-user=user --db-password=Password@11 --admin-firstname=sugandh --admin-lastname=kumar --admin-email=sugandh@gmail.com --admin-user=magentoadmin --admin-password=Password@11 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
+
+
+[SUCCESS]: Magento installation complete.
+[SUCCESS]: Magento Admin URI: /admin_xjz3ak
+
+http://192.168.2.121/admin_xjz3ak
+
+
+MariaDB [(none)]> create database magentodb;
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [(none)]> CREATE USER 'magentouser'@'localhost' IDENTIFIED BY 'Password@11';
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON magentodb.* TO 'magentouser'@'localhost';
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [(none)]> flush privileges;
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [(none)]> exit;
+Bye
+
+smb://192.168.0.239/network-storage/vipul%20(IT%20Team)
+smb://192.168.0.239/network-storage/vipul%20(IT%20Team)/sugandh
+https://stackoverflow.com/questions/32668486/how-do-i-install-the-sample-data-after-setting-up-magento2
+
+*We can create---
+5 VPC in a region
+200 subnets in a VPC
+200 rout table of 200 subnet
+50 entries in a route table
+5 security group in a instance
+5 elastic IP in a User Account
+*Reserverd IP’s---
+10.0.0.0-- Network Addresss/id
+10.0.0.1-- reserved by VPC Router
+10.0.0.2-- reserved by aws DNS Server
+10.0.0.3-- reserved by future use
+10.0.0.255-- reserved by Broadcast Address
+Instance-- An instance is a virtual server in the AWS Cloud.
+Instance Storage-- 
+An instance store provides temporary block-level storage for your instance. This storage is located on disks that are physically attached to the host computer. ... An instance store consists of one or more instance store volumes exposed as block devices.
+
+
+
+echo "# cedcoss" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:Er-Sugandh/cedcoss.git
+git push -u origin main
+
+
+
+
+
