@@ -1,0 +1,10 @@
+
+Git : Clone specific repo:
+
+git init
+
+git remote add -t <branch-name> -f origin <remote-repo-url>
+
+git checkout <branch-name>
+
+git checkout <branch-name>git clone --single-branch --branch <branch-name> <remote-repo-url>
