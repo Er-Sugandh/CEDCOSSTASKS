@@ -1,0 +1,136 @@
+
+
+
+
+
+ sudo chown -R ubuntu:www-data .
+   29  sudo chmod +x bin/magento 
+   30  find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +
+   31  find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+   32  sudo find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+   33  chmod u+x bin/magento
+   34  bin/magento setup:install
+   35  sudo chmod -R 777 pub/ generated/ var/
+   36  bin/magento setup:install
+   37  sudo nano /etc/nginx/sites-enabled/magento2 
+   38  sudo systemctl restart nginx.service 
+   39  sudo systemctl restart elasticsearch.service 
+   40  sudo systemctl restart php7.4-fpm.service 
+   41  sudo systemctl restart nginx.service 
+   42  cd /etc/nginx/sites-available/
+   43  ls
+
+
+bin/magento c:c
+  116  sudo systemctl restart nginx.service 
+  117  bin/magento setup:upgrade
+  118  php bin/magento setup:di:compile
+  119  sudo chmod -R 777 pub/ var/ generated/
+  120  sudo rm -rf var/cache/*
+  121  sudo rm -rf var/page_cache/*
+  122  php bin/magento setup:di:compile
+  123  php bin/magento setup:static-content:deploy -f
+  124  sudo rm -rf var/cache/*
+  125  php bin/magento c:c
+  126  php bin/magento c:f
+  127  sudo nano /etc/nginx/sites-enabled/magent 
+  128  php -v
+  129  sudo nano /etc/php/7.4/fpm/php.ini 
+  130  sudo nano /etc/php/7.4/cli/php.ini 
+  131  sudo systemctl php7
+  132  sudo systemctl restart php7.4-fpm.service 
+  133  sudo systemctl restart nginx.service 
+
+ bin/magento setup:store-config:set --use-secure-admin=1
+
+
+bin/magento setup:install --base-url=https://50.18.82.85/ --db-host=localhost --db-name=magento --db-user=magento --db-password=magento --backend-frontname=admin --admin-firstname=admin --admin-lastname=admin --mailto:admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD  --timezone=America/Chicago --use-rewrites=1
+
+
+bin/magento c:c
+  116  sudo systemctl restart nginx.service 
+  117  bin/magento setup:upgrade
+  118  php bin/magento setup:di:compile
+  119  sudo chmod -R 777 pub/ var/ generated/
+  120  sudo rm -rf var/cache/*
+  121  sudo rm -rf var/page_cache/*
+  122  php bin/magento setup:di:compile
+  123  php bin/magento setup:static-content:deploy -f
+  124  sudo rm -rf var/cache/*
+  125  php bin/magento c:c
+  126  php bin/magento c:f
+  127  sudo nano /etc/nginx/sites-enabled/magent 
+  128  php -v
+  129  sudo nano /etc/php/7.4/fpm/php.ini 
+  130  sudo nano /etc/php/7.4/cli/php.ini 
+  131  sudo systemctl php7
+  132  sudo systemctl restart php7.4-fpm.service 
+  133  sudo systemctl restart nginx.service 
+  134  bin/magento setup:install --base-url=http://3.110.105.126/ --db-host=localhost --db-name=magentodb --db-user=root --db-password=password --backend-frontname=admin --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD  --timezone=America/Chicago --use-rewrites=1
+
+135  sudo rm -rf var/cache/*
+  136  sudo rm -rf var/page_cache/*
+  137  bin/magento setup:install --base-url=http://3.110.105.126/ --db-host=localhost --db-name=magentodb --db-user=root --db-password=password --backend-frontname=admin --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD  --timezone=America/Chicago --use-rewrites=1
+  138  bin/magento setup:install --base-url=http://3.110.105.126/ --db-host=localhost --db-name=magentodb --db-user=user --db-password=Password11@ --admin-firstname=FirstName --admin-lastname=LastName --admin-email=your@emailaddress.com --admin-user=admin --admin-password=Password11@ --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
+  139  bin/magento setup:install --base-url=https://3.110.105.126/ --db-host=localhost --db-name=magentodb --db-user=user --db-password=Password11@ --admin-firstname=FirstName --admin-lastname=LastName --admin-email=your@emailaddress.com --admin-user=admin --admin-password=Password11@ --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
+  140  php bin/magento c:c
+  141  php bin/magento c:f
+  142  sudo systemctl restart nginx.service 
+  143  sudo apt install phpmyadmin
+  144  sudo systemctl restart nginx.service 
+
+
+upstream fastcgi_backend {
+  server  unix:/run/php/php7.4-fpm.sock;
+}
+
+server {
+
+  listen 80;
+#  server_name ;
+  set $MAGE_ROOT /var/www/html/magento2;
+  include /var/www/html/magento2/nginx.conf.sample;
+}
+
+server {
+
+     listen 443 ssl;
+#server_name example.com;
+
+    #ssl on;
+    include snippets/self-signed.conf;
+    include snippets/ssl-params.conf;
+
+    set $MAGE_ROOT /var/www/html/magento2;
+    include /var/www/html/magento2/nginx.conf.sample;
+}
+
+
+upstream fastcgi_backend {
+server unix:/run/php/php7.4-fpm.sock;
+}
+server {
+server_name mymagento.com;
+listen 80;
+set $MAGE_ROOT /var/www/magento2;
+include /var/www/magento2/nginx.conf.sample;
+}
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    include snippets/self-signed.conf;
+    include snippets/ssl-params.conf;
+
+    set $MAGE_ROOT /var/www/magento2;
+    include /var/www/magento2/nginx.conf.sample;
+
+}
+
+
+bin/magento setup:install --base-url=https://3.111.41.191/ --db-host=localhost --db-name=db --db-user=magentouser --db-password=Password11@ --admin-firstname=FirstName --admin-lastname=LastName --admin-email=your@emailaddress.com --admin-user=magentoadmin --admin-password=Password11@ --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
+ Admin URI: /admin_1vt5m5
+
+ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+
+
