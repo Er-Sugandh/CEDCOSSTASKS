@@ -1,0 +1,341 @@
+Magento 2.4 with LEMP Stack on Ubuntu
+
+SOFTWARE DEPENDENCIES
+2.4.5
+2.4.4
+2.4.3-P2
+2.4.3
+2.4.2
+2.4.1
+2.4.0
+Composer
+2.1
+2.1
+1
+1
+1
+1
+1
+Elasticsearch
+7.17
+7.16
+7.16
+7.10
+7.9
+7.7
+7.6
+OpenSearch
+1.2
+1.2
+1.2
+--
+--
+--
+--
+MariaDB
+10.4
+10.4
+10.4
+10.4
+10.4
+10.4
+10.2, 10.3, 10.4
+MySQL
+8.0
+8.0
+8.0
+8.0
+8.0
+8.0
+5.7, 8.0
+PHP
+8.1
+8.1
+7.4
+7.4
+7.4
+7.4
+7.3, 7.4
+RabbitMQ
+3.9
+3.9
+3.8
+3.8
+3.8
+3.8
+3.8
+Redis
+6.2
+6.2
+6.0
+6.0
+6.0
+5.0
+5.0
+Varnish
+7.0
+7.0
+6.5
+6.5
+6.4
+6.2
+6
+Apache
+2.4
+2.4
+2.4
+2.4
+2.4
+2.4
+2.4
+nginx
+1.8
+1.8
+1.8
+1.8
+1.8
+1.8
+1.8
+AWS Aurora (MySQL)
+--
+--
+--
+5.7
+--
+--
+--
+AWS S3
+--
+--
+--
+✔️
+✔️
+--
+--
+AWS MQ
+--
+--
+--
+3.8.11
+--
+--
+--
+AWS ElastiCache
+--
+--
+--
+Redis 6
+--
+--
+--
+AWS ElasticSearch
+--
+--
+--
+7.9
+--
+--
+--
+
+sudo apt-get install nginx
+
+apt-get install software-properties-common
+
+apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+
+add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.lstn.net/mariadb/repo/10.4/ubuntu bionic main'
+
+apt update
+
+apt install mariadb-server  |  systemctl enable mariadb.service
+
+Install Elasticsearch
+Note : We can install any version of elasticsearch according    to magento version with the help of wget command.
+Must importan jdk according to magento version. 
+
+cd /opt  
+
+wgethttps://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.1-amd64.deb
+
+dpkg -i elasticsearch-7.6.1-amd64.deb  | systemctl start elasticsearch
+
+curl -XGET 'http://localhost:9200'
+
+Install PHP 7.4
+add-apt-repository ppa:ondrej/php
+
+apt-get install php7.4
+
+apt install php7.4-fpm php7.4-common php7.4-mysql php7.4-gmp php7.4-curl php7.4-intl php7.4-mbstring php7.4-xmlrpc php7.4-gd php7.4-xml php7.4-cli php7.4-zip php7.4-bcmath
+
+apt-get install git curl software-properties-common
+
+Note : now here we have to tuning php ini & cli file 
+
+nano /etc/php/7.4/fpm/php.ini
+
+
+Change the following settings:
+file_uploads = On
+allow_url_fopen = On
+short_open_tag = On
+memory_limit = 256M
+cgi.fix_pathinfo = 0
+zlib.output_compression = On
+upload_max_filesize = 128M
+max_execution_time = 600
+max_input_time = 900
+date.timezone = America/Chicago
+
+Note : Here craeting Databases for magento user and admin
+
+mysql_secure_installation
+
+mysql -u root -p
+
+create database db;
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'Password@11';
+GRANT ALL PRIVILEGES ON db.* TO 'user'@'localhost';
+flush priviledge;
+
+Install Magento 2
+
+mkdir -p /var/www/magento2/
+cd /var/www/magento2/
+git clone https://github.com/magento/magento2.git /var/www/magento2/
+
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+
+cd /var/www/magento2
+composer install --ignore-platform-reqs
+
+composer install
+
+Note : Must install php soap extension 
+
+sudo apt-get install php7.4-soap   
+
+
+bin/magento setup:install --base-url=https://13.232.19.228/ --db-host=localhost --db-name=db --db-user=magentouser --db-password=Password11@ --admin-firstname=FirstName --admin-lastname=LastName --admin-email=your@emailaddress.com --admin-user=magentoadmin --admin-password=Password11@ --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
+
+Do not forget to replace the domain name, database password, admin username, password and admin email address accordingly.
+
+[Progress: 699 / 701]
+Post installation file permissions check...
+For security, remove write permissions from these directories: '/var/www/magento2/app/etc'
+[Progress: 700 / 701]
+Write installation date...
+[Progress: 701 / 701]
+[SUCCESS]: Magento installation complete.
+[SUCCESS]: Magento Admin URI: /admin_1k4pc0 
+Nothing to import.
+
+Note : copy the Admin URI (we can change this url through go inside /var/www/magento/ and sudo nano app/etc/env.php).
+change 'frontName' => 'admin_1k4pc0'
+
+sudo chown -R www-data:www-data /var/www/magento2/
+
+Create an Nginx Configuration File
+
+Virtual Hosting 80
+upstream fastcgi_backend {
+server unix:/run/php/php7.4-fpm.sock;
+}
+server {
+server_name 13.232.19.228;
+listen 80;
+set $MAGE_ROOT /var/www/magento2;
+include /var/www/magento2/nginx.conf.sample;
+}
+
+
+
+
+SSL Configuration 443
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    include snippets/self-signed.conf;
+    include snippets/ssl-params.conf;
+
+    set $MAGE_ROOT /var/www/magento2;
+    include /var/www/magento2/nginx.conf.sample;
+
+}
+
+
+
+
+
+rm -f /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/magento2 /etc/nginx/sites-enabled/magento2
+
+
+Note: Check configuration syntax and test successfull or not.
+
+sudo nginx -t
+
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+Setup sample Data on Magento 
+
+cd /var /www / 
+ sudo git clone https://github.com/magento/magento2-sample-data.git
+
+cd /var/www/magento2
+
+sudo chown -R ubuntu:www-data /var/www/magento2
+find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +
+
+sudo find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+
+sudo chmod -R 777 var pub
+
+php -f /var/www/magento2-sample-data/dev/tools/build-sample-data.php -- --ce-source=/var/www/magento2
+
+sudo chown -R www-data:www-data /var/www/magento2/
+
+ php bin/magento setup:upgrade
+ bin/magento setup:di:compile
+ bin/magento setup:db-data:upgrade
+
+ sudo systemctl  restart nginx.service
+
+
+
+Importnat Permissions :
+
+sudo chown -R ubuntu:www-data 
+sudo chmod +x bin/magento
+
+sudo find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +
+
+sudo find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+
+sudo find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+
+sudo chmod -R 777 pub/ generated/ var/
+
+
+
+Important Command For Magento :
+
+composer install
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+sudo chmod -R 777 pub/ generated/ var/ #
+sudo rm -rf var/cache/*  #
+sudo rm -rf var/page_cache/* #
+php bin/magento setup:static-content:deploy -f
+php bin/magento c:c
+php bin/magento c:f
+
+
+Note : You can also change Magento 2 store configuration using CLI in case you are not able to access admin panel
+
+bin/magento setup:store-config:set –use-secure-admin=1
+
+
+
+

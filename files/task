@@ -642,7 +642,7 @@ mariaDB passworD11@
 
 
 sql
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'passworD1@';
+
 
 enp0s3
 
@@ -697,16 +697,18 @@ http://192.168.2.121/admin_xjz3ak
 
 
 MariaDB [(none)]> create database magentodb;
-Query OK, 1 row affected (0.000 sec)
 
-MariaDB [(none)]> CREATE USER 'magentouser'@'localhost' IDENTIFIED BY 'Password@11';
-Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [(none)]> CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'passworD1@';
+
 
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON magentodb.* TO 'magentouser'@'localhost';
-Query OK, 0 rows affected (0.000 sec)
+
 
 MariaDB [(none)]> flush privileges;
-Query OK, 0 rows affected (0.000 sec)
+
 
 MariaDB [(none)]> exit;
 Bye
@@ -742,7 +744,47 @@ git branch -M main
 git remote add origin git@github.com:Er-Sugandh/cedcoss.git
 git push -u origin main
 
+ERROR 
+https://blog.pixelfish.com.au/most-common-website-errors
+http://www.csgnetwork.com/servererrors.html
+
+3.109.217.3
+GRANT ALL PRIVILEGES ON db.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+
+https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04
+
+bin/magento setup:install --base-url=http://magentoshop.com/ --db-host=localhost --db-name=magentodb --db-user=user --db-password=Password11@ --admin-firstname=FirstName --admin-lastname=LastName --admin-email=your@emailaddress.com --admin-user=admin --admin-password=Password11@ --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
 
 
+php bin/magento setup:store-config:set --base-url-secure="https://magentoshop.com/"
+
+https://devdocs.magento.com/guides/v2.4/config-guide/cli/config-cli-subcommands-cache.html
+
+https://devdocs.magento.com/guides/v2.4/config-guide/varnish/config-varnish.html
+
+PHP :
+apt install php7.4-fpm php7.4-common php7.4-mysql php7.4-gmp php7.4-curl php7.4-intl php7.4-mbstring php7.4-xmlrpc php7.4-gd php7.4-xml php7.4-cli php7.4-zip php7.4-bcmath
+
+
+MariaDB [(none)]> create database db;
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [(none)]> CREATE USER 'root'@'localhost' IDENTIFIED BY 'Password11@';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'root'@'localhost'
+MariaDB [(none)]> 
+MariaDB [(none)]> CREATE USER 'magentouser'@'localhost' IDENTIFIED BY 'Password11@';
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON db.* TO 'magentouser'@'localhost';
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> flush privileges;
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> exit
+Bye
+
+MAGENTO INSTALLATION HOSTING SSL VARNISH 
+https://olegnax.com/speed-up-magento-2-with-varnish-and-nginx-as-ssl-termination-on-ubuntu/
 
 
