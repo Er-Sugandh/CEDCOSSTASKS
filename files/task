@@ -790,4 +790,5 @@ https://olegnax.com/speed-up-magento-2-with-varnish-and-nginx-as-ssl-termination
 NGINX SSl :
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-20-04-1
 
+sudo yum install mysql-common mysql-server
 
