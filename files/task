@@ -792,3 +792,13 @@ https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl
 
 sudo yum install mysql-common mysql-server
 
+
+ssh bastion server
+https://www.youtube.com/watch?v=Dm5rFEx6ATc
+
+https://medium.com/codex/how-to-setup-bastion-server-with-aws-ec2-b1590d2ff815
+
+Docker 
+https://www.toptal.com/docker/interview-questions
+https://www.edureka.co/blog/interview-questions/docker-interview-questions/
+
