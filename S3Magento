@@ -1,0 +1,100 @@
+composer require thaiphan/magento2-s3
+php bin/magento module:enable Thai_S3
+sudo php bin/magento module:enable Thai_S3
+php bin/magento setup:upgrade
+sudo php bin/magento setup:upgrade
+
+
+php bin/magento module:enable Thai_S3
+php bin/magento setup:upgrade
+
+php bin/magento s3:config:set \
+    --access-key-id=XXXXXXX \
+    --secret-key=XXXXXXX \
+    --bucket=XXXXXXX \
+    --region=XXXXXXX
+
+php bin/magento c:c
+sudo chown -R :www-data .
+php bin/magento c:c
+sudo rm -rf var/cache/*
+sudo rm -rf var/page_cache/*
+sudo rm -rf var/cache/*
+sudo rm -rf var/page_cache/*
+sudo chmod -R 777 var/ pub/ generated/
+sudo chmod -R 777 var/ pub/ generated/php
+sudo chmod -R 777 var/ pub/ generated/
+sudo bin/magento setup:upgrade
+
+
+  php bin/magento s3:config:set   
+  --access-key-id=AKIASMZE24DEUVH7SLNO 
+  --secret-key=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
+  --bucket=sugandh-media-magento    
+  --region=us-east-2
+
+chmod 777 -R app/etc
+sudo chmod 777 -R app/etc
+
+bin/magento c:cphp bin/magento c:c
+chmod 777 -R var
+sudo chmod 777 -R var
+sudo chmod 777 -R generated
+sudo rm -rf var/cache/* var/page_cache/* var/generation/*
+php bin/magento setup:di:compile
+php bin/magento c:c
+php bin/magento c:f
+
+
+php bin/magento s3:config:set  
+  --access-key-id=AKIASMZE24DEUVH7SLNO
+  --secret-key=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 
+  --bucket=sugandh-media-magento --region=us-east-2
+
+
+php bin/magento s3:storage:export
+aws configure
+php bin/magento s3:storage:export
+sudo apt install awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install
+cd /var/www/magento2/
+php bin/magento s3:storage:export
+aws configure
+
+php bin/magento s3:storage:export
+aws configure --profile sugandhmagento
+php bin/magento s3:storage:enable
+php bin/magento s3:storage:export
+aws s3 ls
+aws iam list-users
+sudo systemctl restart nginx.service
+aws s3 ls
+aws iam list-users
+sudo chmod -R 777 pub/ generated
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
+
+php bin/magento c:f
+php bin/magento c:c
+sudo apt install sl
+
+
+sudo chown -R ubuntu:www-data 
+php bin/magento s3:storage:export
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+sudo usermod -aG www-data ubuntu
+sudo chmod -R 777 pub/ var/ generated/
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
+
+
+
+
+
+
