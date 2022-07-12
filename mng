@@ -177,7 +177,7 @@ server {
 
  sudo nginx -t
 
-/var/www/magento2$ sudo bin/magento setup:install --base-url=https://mymagento.com/ --db-host=database-9.cyjfgvn3l5xa.ap-south-1.rds.amazonaws.com --db-name=magentodb --db-user=admin --db-password=password --admin-firstname=admin --admin-lastname=admin --mailto:admin-email=admin@emai.com --admin-user=magentoadmin --admin-password=password@1 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
+/var/www/magento2$ sudo bin/magento setup:install --base-url=http://everytech.ml/ --db-host=localhost --db-name=db --db-user=root --db-password=password --admin-firstname=admin --admin-lastname=admin --admin-email=admin@emai.com --admin-user=magentoadmin --admin-password=password@1 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
 
 sudo systemctl restart nginx
 
