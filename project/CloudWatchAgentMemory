@@ -1,0 +1,47 @@
+1) The IAM role for EC2
+
+If your EC2 machine has an IAM role assigned, you will have to find it and make sure it has the appropriate permissions – “CloudWatchFullAccess”
+
+Search for IAM, select “Roles” from the menu and click on “Create Role”.
+
+2) Installing CloudWatch Agent
+
+#Ubuntu
+wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
+
+sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
+
+nano /opt/aws/amazon-cloudwatch-agent/bin/config.json
+
+
+{
+   "metrics":{
+      "metrics_collected":{
+         "mem":{
+            "measurement":[
+               "mem_used_percent"
+            ],
+            "metrics_collection_interval":60
+         }
+      },
+      "append_dimensions": {
+        "InstanceId": "${aws:InstanceId}"
+      }
+   }
+}
+
+
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+
+
+
+If you did everything correctly then you should see the new CWAgent namespace in the Cloudwatch console.
+
+
+The important thing is that the namespace in CloudWatch must contain InstanceID!! If this is not the case, we will not receive a recommendation from AWS based on memory usage.
+
+
+If there are problems then you can review the logs, which should be in /opt/aws/amazon-cloudwatch-agent/logs/. You can also use one of the commands below to check the status or stop the agent.
+
+
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a stop
