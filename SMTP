@@ -1,0 +1,76 @@
+account default
+host smtp.gmail.com          
+port 587                     
+from "mailto:support@magenative.com"   
+tls on                       
+tls_starttls on              
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+auth on                     
+user "mailto:support@magenative.com"       
+password "j&29*98Ny5Yt"
+logfile ~/.msmtp.log
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+echo -e "Subject: Test Mail\r\n\r\nThis is my first test email." |msmtp --debug --from=default -t mailto:sugandhkumar@cedcommerce.com
+
+https://chribonn.medium.com/howto-send-an-email-using-gmail-from-a-system-configuration-using-msmtp-and-heirloom-mailx-ubuntu-1cb2bace0c33
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ssh -i "magento243.pem" ubuntu@ec2-43-205-63-63.ap-south-1.compute.amazonaws.com
+pem:magento
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAna/4GdmT7M+xuGUcpp30+S1ku07u8cI6hVfh0pYSn2p7vvn4
+gRBOVUJaUpk7DakvTKJjkr/hbpse2imVD//SMHbAP+YIg17WXVLynUjbFuVHFoV1
+cT65/RGK9ykq1Ppmw/eTJpW1lAoAyd9z/li4B0EJQQu4Q1O4zOeOnj6UTt5cSB4a
+nMsBW2rGOxaTtlS1KYFrUeoVAcjfrW8LpT+7/qki91QuxHL8vfatWAlmo3WVVZZx
+0DpAfgwZERSoxbPuQ00IgKs7BniTvqS4HcDPN6v56bt6edZ29104ZHF3Q/SfS4DF
+mplNc4r3sHZnR+d7rpYODCjSY2hCXlqbAxosbwIDAQABAoIBAQCRWBwv/3u4oGvo
+UdKJxTiC4JNjjsrxrZxxQeLVTxyVMfojupaSp+v77DACyFhFLDd7xIZRQmnQoExc
+vE04NQ2RPDPR8f7Qz/54gLc9wGSpAuZ2XMc2faHDIINdc+WV78P/R1isDPwUGvBF
+IqDwxOfDT+/us5XBAQ9qVtj/BSGAW0NuC77ulpBlxWIdMNVbmSCzYeDq2hhZPrfd
+Q8Oajn+7a2Xg0nlT+Fu/gPOpDmSYcC/NI/q4EUy4c3L9p4BvmtnYKNd6C7nqbIEj
+kqddWVg+4xBdIKK4IUUBZwT623aaAmJYbopkGfCqIZUNpfcDxZhns/RG0XTOGNrt
+rpCpYj7BAoGBANjefKGb123vIjiqaEQH0wWXBAU9n/68a7v7iQ+lAMb1Q2FvXbUb
+RKD13Xf3WTJ05WYiTZXZUjtM4GPzobFKV0l/jLrPjTHGnxSk6oOQ7O0ssYOmDHd7
+iVv1n1cJd9cYZ+Gvd/7I+uzSvItyxoLvEXvI+qTxGORfsoin6qVgX5nPAoGBALoj
+ygIqs4uSq+G/vkPDR2AB4qVGuHiix64l10iZmU3dJQMT/ISTa7MJZ/Ty1S1Kr921
+Pt3nvjOOU/UWA4E8KRvNtAGvbPAYwvCc4zqFdYtcCBCLh3J239FEtY9Ec/JwWA69
+s2eNSg564mdhDFbh1A27gY0F5jErowGmKEt6qwthAoGAZ+LcTQY8QntFJ2PqInyl
+B4557JDCreJQsXIjDA18u9INfwU8HF99lqVwe+FPJy58HVrdU6URETsYWokAsc7s
+1VZ2cZ6vAmMlHVyKwo+QD2VTe771Rd81w4l71NPCRpV4XdISZ0ibewrQKvTGRz6C
+X4u9FXow9GUrPu9BJgtugF0CgYBtErm16VXKjMjhgR050f1KGfC4jqdcMW628n+j
+kDYQNW0Rz61h9ozenb1oAL/ASYqibSmImNqQlW9HJ34oRZuFKlW3wxcf3jKlEhno
+2fmWDvi+0TQuc9AVbaDCcgdLYl+HS8wL+vQRZhqzH2A+rRg4b86rV3CbEYn0Vmw4
+RopiIQKBgGhOv1No7JGyr4VYYk8H5chjBPKBLD/X7EpEyNhvF+20thah+583hxl7
+0ZL2p7PbsbbjWRy5S2NQa9alZlWNmgarW926O+36XtJ0mqN5bsEG1hA9VlW7c/qP
+9YFTMDZCDq5bfwtKNDk6oLcOyVyARO43CwOyinxhClDBRpxSI0bw
+-----END RSA PRIVATE KEY-----
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+sugandh-cloud :   ssh -i "sugandh-cloud.pem" ubuntu@ec2-65-1-107-32.ap-south-1.compute.amazonaws.com
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAhvMHv2t7QAmCNwspDXUtupYCsgM8agILOILrDHebP1+ODdbZ
+c2ViDtBn8LJHOous3wPGV5Z6QcSEbmVwkhz1+3UiFHBpgiDo8SRpjYlGjM41MRkO
+7JHGMV4udiVYs3DvPSlk57gEWyVCLp1pUZfQpvCLeMNKtfkhhtgtyysjqRW5s0k8
+1JeVbff2yyDyZFH0AiTRg2cQxDYfEjsd/uMXs1MW/thW7lrMCcv4iER43XCgl4m0
+2wpDKN75zPb2q0TTwn4ioud4FhmDiwmiqfPz3rl/cRdwrTC9u2XukS3/bfQnId54
+DMNKbVg2RipmNuwsTuQ4dACxEmFUcJ71sB+iWwIDAQABAoIBABJcfOBhqmpjINGG
+djZ7jBZIFOPNpumxj39H6N1QZNIxmS1u3zVhRP9JAetxBloD6SiK5fDC662JJI+0
+w6VNxXZKULHBPcnT2n38+1OjqvK7l+cvRqWPjAzpiJ7QpAn+Qr7qo+0XT5hrMF8R
+UeQlKOGd9wweXkr2M8aaIVj0bKyzsmMu9rjH2cZZoqK2/0/+uORHljaacax6SuPq
+1VhJbwfuNy5rGFJpD9EluKnb58RB4+bwEWpawNqvJkjof6Gs9POADy981FwcSB0M
+3IVhlasiUCDSovdzBUMFpOVdWeyqtTjxvIdE7h4ufTy1/iQlWpyeyu0JErj2J5SL
+4E8atRECgYEAw/VpuxXWlL/l+/5RRXHJsnpuXzn2i65lMnwL+5W9Td472VPoV8OB
+Zl23SOMk1heRu4D2ckL3EVmfzhJsz7B3pFKrO0YbWqccuYivp8MY9K7pPOy9vHNh
+Seh+bSMag+SU7rfFc0zbAxV2+NAOgstnT3e7ZuQw4O0i/mnzCu/X9+kCgYEAsEws
+rgz/sAewSFy9s+yH8YR7x4TgnxG9iO5UTij9J9+QBG6ci+oDRwE3hAw7EFnvFRDy
+92vUSWVd+ggIMurv58tR3WnUtBKN2azFIpmCg3yjz3mtZbt9fvY4JvA1NSQgCNpw
+Iy5lWoSQCdYid4421oZyPbbbN7LXQSJkO/hR4aMCgYBdPRUs1mw+ZLx6VXy4DTdK
+O+TuXHcJ6VXvWoSdFZd4SIizlLAVqkmUunyuKp3pXFeUHv2kSmaik8Fs3Ol3POEA
+h/E/h9EWJjONuBLUQQlLyznhKkfxNfkRoJUfOrewEAApQbmqbeQ7qGfuZZix9TRX
+5IF/qI31SAABi8n/5zUcmQKBgHgMdwRSP65LngO4e0lQ0MVqlKspVZecCfd7axcK
+HFERkE0kUR+JS5AHSRl3BqU8yGwM7ZYD7DvKdfLzkzmw94pczjM6hKfWVpeaaWcF
+J3WH4zg9wBCdWnihC12ghmrYXaQJswCR8FxyFm9MTI4i3j64sIRLxv0noCJvW9fm
+YUOHAoGBAKPhIt9rpGZYBmM3cz/FlIH0M2uzLT1VrluUs3cT4UDUhZ9arYtTB2Do
+jKdQ5a/FOZnZ5PMbVlJmCHUkopUsnDTXikwgL3uKVJsjKkAknxc3e463C504FDVF
+8Q6kqF1zV1bQv/0uQ2RTZDH9tXIzTgd3dpluFGg3b9xey7KcjgR1
+-----END RSA PRIVATE KEY-----
